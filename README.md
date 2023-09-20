@@ -27,7 +27,7 @@ cd License-Plate-Detection-by-YOLO
 
 ## Usage
 
-1. Run the main.ipynb file.
+1. Run the Detection_with_API.ipynb file.
 1. The code will use the Roboflow API to detect the license plate in the specified image and extract the relevant information.
 2. The detected license plate text will be displayed in the console.
 
