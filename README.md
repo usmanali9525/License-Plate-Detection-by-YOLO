@@ -1,17 +1,18 @@
 # License Plate Detection and Recognition
-This repository contains Python code for detecting and recognizing license plates in car images using the Roboflow API, OpenCV, and EasyOCR. You can use this code to process images of cars and extract the text from their license plates.
+This repository contains Python code for detecting and recognizing license plates in car images using the Roboflow API, OpenCV, and EasyOCR. You can use this code to process images/videos of cars and extract the text from their license plates.
 
 ## Prerequisites
 Before running the code, make sure you have the following libraries and dependencies installed:
 
 1. Roboflow
 2. OpenCV
-3. EasyOCR
+3. Ultralytics
+4. EasyOCR
 
 You can install these dependencies using pip:
 
 ```
-pip install roboflow opencv-python easyocr
+pip install roboflow opencv-python easyocr, ultralytics
 ```
 
 ## Getting Started
