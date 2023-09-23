@@ -26,10 +26,15 @@ cd License-Plate-Detection-by-YOLO
 3. Replace 'PATH OF CAR IMAGE' in the code with the path to the image you want to process.
 
 ## Usage
-
+### Detection_with_API.ipynb file
 1. Run the Detection_with_API.ipynb file.
 1. The code will use the Roboflow API to detect the license plate in the specified image and extract the relevant information.
 2. The detected license plate text will be displayed in the console.
+
+### Custom_Model_Live_Detection.py file
+1 Run the Custom_Model_Live_Detection.py file to initiate the license plate detection system.
+2. Upon execution, a camera feed will open, and the system will begin real-time license plate detection from the video stream.
+3. The detected license plate number will be displayed on the screen, providing you with the identified information.
 
 ## Additional Testing
 The "Cars Images" directory in this repository contains multiple images of cars for testing purposes. You can replace the 'PATH OF CAR IMAGE' with the paths to these images to test the code on different car images.
