@@ -20,19 +20,17 @@ while True:
 
         for box in boxes:
             b = box.xyxy[0]
-            #c = box.cls
-            #label = model.names[int(c)]
+
             plate_roi = frame[int(b[1]):int(b[3]), int(b[0]):int(b[2])]
 
             number_plate_results = reader.readtext(plate_roi)
             number_plate_text = ''
             for result in number_plate_results:
                 text = result[1]
-                # Remove special characters using regular expression
+
                 text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
                 number_plate_text += text + ' '
 
-            # Draw the recognized text on the license plate region
             cv2.putText(frame, number_plate_text, (int(b[0]), int(b[1]) - 10),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
