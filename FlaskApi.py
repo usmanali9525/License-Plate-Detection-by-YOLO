@@ -8,16 +8,13 @@ import os
 
 app = Flask(__name__)
 
-# Configure the image upload settings
 photos = UploadSet("photos", IMAGES)
 app.config["UPLOADED_PHOTOS_DEST"] = "uploads"
 configure_uploads(app, photos)
 
-# Initialize YOLO model and EasyOCR reader
 model = YOLO(r'Models\best.pt')
 reader = easyocr.Reader(['en'])
 
-# Function to process an image
 def process_image(image_path):
     frame = cv2.imread(image_path)
     resized_img = cv2.resize(frame, (640, 480))
@@ -35,7 +32,6 @@ def process_image(image_path):
             number_plate_text = ''
             for result in number_plate_results:
                 text = result[1]
-                # Remove special characters using regular expression
                 text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
                 number_plate_text += text + ' '
 
@@ -44,7 +40,6 @@ def process_image(image_path):
                 "Number Plate Text": number_plate_text.strip()
             })
 
-    print("Output Data:", output_data)
     return output_data
 
 

@@ -9,41 +9,88 @@
         body {
             background-color: #f8f9fa;
             font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .container {
-            max-width: 600px;
-            margin: auto;
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
         .text-center {
             text-align: center;
         }
 
-        .mt-5 {
-            margin-top: 5rem;
-        }
-
         .mb-4 {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .mt-3 {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
-        .mb-3 {
-            margin-bottom: 1rem;
+        input[type="file"] {
+            display: none;
+        }
+
+        label.upload-label {
+            cursor: pointer;
+            display: inline-block;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        label.upload-label:hover {
+            background-color: #218838;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .btn-upload {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-upload:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
         }
     </style>
 </head>
-<body class="container mt-5">
-    <div class="text-center">
-        <h1 class="mb-4">Number Plate Recognition</h1>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Number Plate Recognition</h1>
         <form method="POST" enctype="multipart/form-data">
-            <input class="form-control" type="file" name="photo" accept="image/*" required>
-            <button class="btn btn-primary mt-3" type="submit">Upload</button>
+            <label for="photo" class="upload-label">Choose Photo</label>
+            <input id="photo" class="form-control" type="file" name="photo" accept="image/*" required>
+            <span class="file-name">No file chosen</span>
+            <button class="btn btn-upload mt-3" type="submit">Upload</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById('photo').addEventListener('change', function() {
+            var fileName = this.files[0].name;
+            var fileNameSpan = document.querySelector('.file-name');
+            fileNameSpan.textContent = fileName;
+        });
+    </script>
 </body>
 </html>
